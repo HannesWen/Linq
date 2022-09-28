@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,17 +71,39 @@ namespace Linq
             //}
             //Console.ReadKey();
 
-            //Arbeitsblatt Aufgaben zu Linq Nr.Gebe die Zahl, das Auftreten der Zahl im Array, sowie die Multiplikation der Zahl mit der Zahl ihres Auftretens int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };
-            int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };
+            //Arbeitsblatt Aufgaben zu Linq Nr. 6 Gebe die Zahl, das Auftreten der Zahl im Array, sowie die Multiplikation der Zahl mit der Zahl ihres Auftretens int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };
+            //int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };
 
-            var zahlen = from x in nums
-                         group x by x into y
-                         select y;
-            foreach (var z in zahlen)
-            {
-                Console.WriteLine("zahl " + z.Key + " Summe " + z.Sum() + " auftreten " + z.Count());
-            }
-            Console.ReadKey();
+            //var zahlen = from x in nums
+            //             group x by x into y
+            //             select y;
+            //foreach (var z in zahlen)
+            //{
+            //    Console.WriteLine("zahl " + z.Key + " Summe " + z.Sum() + " auftreten " + z.Count());
+            //}
+            //Console.ReadKey();
+
+            //Arbeitsblatt Aufgaben zu Linq Nr. 7 Gebe die Städte aus, welche mit einem bestimmten Buchstaben beginnen, sowie mit einem weiteren Buchstaben Enden. Gestalte es variabel.string[] cities = "ROME","LONDON","NAIROBI","CALIFORNIA","ZURICH","NEW DELHI","AMSTERDAM","ABU DHABI", "PARIS"};
+            //string[] cities = { "ROME", "LONDON", "NAIROBI", "CALIFORNIA", "ZURICH", "NEW DELHI", "AMSTERDAM", "ABU DHABI", "PARIS" };
+            //string chst, chen;
+
+            //Console.WriteLine("Nach welchem Buchstaben soll ich vorne filtern");
+            //chst = Console.ReadLine();
+            //chst = chst.ToUpper();
+            //Console.WriteLine("Nach welchem Buchstaben soll ich hinten filtern");
+            //chen = Console.ReadLine();
+            //chen = chen.ToUpper();
+            //var _result = from x in cities
+            //              where x.StartsWith(chst)
+            //              where x.EndsWith(chen)
+            //              select x;
+            //foreach (var city in _result)
+            //{
+            //    Console.WriteLine("The City starting with {0} and ending with {1} is : {2} ", chst, chen, city);
+            //}
+            //Console.ReadLine();
+
+            //Arbeitsblatt Aufgaben zu Linq Nr. 8
 
 
         }
