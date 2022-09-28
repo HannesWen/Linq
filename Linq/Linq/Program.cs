@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -103,8 +104,28 @@ namespace Linq
             //}
             //Console.ReadLine();
 
-            //Arbeitsblatt Aufgaben zu Linq Nr. 8
+            //Arbeitsblatt Aufgaben zu Linq Nr. 8Lasse den Nutzer eine Zahl eingeben, wie viele Einträge er hinzufügen möchte. Frage anschließend nach den jeweiligen Werten, bis die Anzahl der Listelemente erreicht ist. Frage Anschließend nach einer Zahl und gebe nur die Elemente der Liste aus, welche größer als die Eingabe ist.
+            
 
+            int i = 0;
+            int menlist, anzahl, maximalzahl;
+            List<int> templist = new List<int>();
+            Console.WriteLine("Bitte gib mir eine zahl, wie viele Einträge du haben möchtest");
+            anzahl = int.Parse(Console.ReadLine());
+            for (i = 0; i < anzahl; i++)
+            {
+                Console.WriteLine("Member {0} ",i);                
+                templist.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+            Console.WriteLine("Ab welcher Zahl sollen die Einträge wieder ausgegeben werden?");
+            maximalzahl = int.Parse(Console.ReadLine());
+            List<int> FilterList = templist.FindAll(x=>x>=maximalzahl? true: false);
+            Console.WriteLine("Die zahlen sind:");
+            foreach (var num in FilterList)
+            {
+                Console.WriteLine(num);
+            }
+            Console.ReadLine();
 
         }
     }
