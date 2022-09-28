@@ -127,35 +127,49 @@ namespace Linq
             //Console.ReadLine();
 
             //Arbeitsblatt Aufgaben zu Linq Nr. 9 Frage den Nutzer wie viele Einträge er ausgeben möchte, sortiere die Liste den Werten nach absteigend und gebe anschließend die n Einträge aus die der Nutzer sehen möchte. (Verwende die .Take() - Methode)
-            Console.WriteLine("Wie viele Einträge möchtest du haben");
-            int eintraege = int.Parse(Console.ReadLine());
-            List<int> liste = new List<int>();
-            for (int i = 0; i < eintraege; i++)
+            //Console.WriteLine("Wie viele Einträge möchtest du haben");
+            //int eintraege = int.Parse(Console.ReadLine());
+            //List<int> liste = new List<int>();
+            //for (int i = 0; i < eintraege; i++)
+            //{
+            //    liste.Add(Convert.ToInt32(Console.ReadLine()));
+            //}
+            //var order = from s in liste
+            //                    orderby ((uint)s)
+            //                    select s;
+            //foreach (int i in order)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //Console.WriteLine("Wie viele Zahlen sollen wir zurückgeben?");
+            //int take = int.Parse(Console.ReadLine());
+            //var newList = liste.Take(take);
+            //foreach (int i in newList)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //Console.ReadKey();
+
+            //Arbeitsblatt Aufgaben zu Linq Nr. 10 Lasse den Nutzer einen Satz eingeben, in welchen er bestimmte Wörter in UPPER CASE schreibt. Gebe anschließend nur die Wörter aus welche komplett mit UPPERCASE geschrieben wurden.-
+
+            Console.WriteLine("Gib mir nen Text");
+            string text = Console.ReadLine();
+
+            var deintext = WordFilt(text);
+            Console.WriteLine("Die hochgestellten wörter sind: ");
+            foreach (string strRet in deintext)
             {
-                liste.Add(Convert.ToInt32(Console.ReadLine()));
+                Console.WriteLine(strRet);
             }
-            var order = from s in liste
-                                orderby ((uint)s)
-                                select s;
-            foreach (int i in order)
-            {
-                Console.WriteLine(i);
-            }
-            Console.WriteLine("Wie viele Zahlen sollen wir zurückgeben?");
-            int take = int.Parse(Console.ReadLine());
-            var newList = liste.Take(take);
-            foreach (int i in newList)
-            {
-                Console.WriteLine(i);
-            }
-
-
-
-            //Console.WriteLine("deine Liste ist voll");
-
-
-
             Console.ReadKey();
         }
+        static IEnumerable<string> WordFilt(string mystr)
+        {
+            var upWord = mystr.Split(' ')
+            .Where(ECKeyXmlFormat => String.Equals(ECKeyXmlFormat, ECKeyXmlFormat.ToUpper(), StringComparison.Ordinal));
+            return upWord;
+        }
+
+
     }
 }
