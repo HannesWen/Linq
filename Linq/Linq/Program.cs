@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.PerformanceData;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Security.Cryptography;
@@ -104,29 +105,57 @@ namespace Linq
             //}
             //Console.ReadLine();
 
-            //Arbeitsblatt Aufgaben zu Linq Nr. 8Lasse den Nutzer eine Zahl eingeben, wie viele Einträge er hinzufügen möchte. Frage anschließend nach den jeweiligen Werten, bis die Anzahl der Listelemente erreicht ist. Frage Anschließend nach einer Zahl und gebe nur die Elemente der Liste aus, welche größer als die Eingabe ist.
-            
+            //Arbeitsblatt Aufgaben zu Linq Nr. 8 Lasse den Nutzer eine Zahl eingeben, wie viele Einträge er hinzufügen möchte. Frage anschließend nach den jeweiligen Werten, bis die Anzahl der Listelemente erreicht ist. Frage Anschließend nach einer Zahl und gebe nur die Elemente der Liste aus, welche größer als die Eingabe ist.
+            //int i = 0;
+            //int menlist, anzahl, maximalzahl;
+            //List<int> templist = new List<int>();
+            //Console.WriteLine("Bitte gib mir eine zahl, wie viele Einträge du haben möchtest");
+            //anzahl = int.Parse(Console.ReadLine());
+            //for (i = 0; i < anzahl; i++)
+            //{
+            //    Console.WriteLine("Member {0} ",i);                
+            //    templist.Add(Convert.ToInt32(Console.ReadLine()));
+            //}
+            //Console.WriteLine("Ab welcher Zahl sollen die Einträge wieder ausgegeben werden?");
+            //maximalzahl = int.Parse(Console.ReadLine());
+            //List<int> FilterList = templist.FindAll(x=>x>=maximalzahl? true: false);
+            //Console.WriteLine("Die zahlen sind:");
+            //foreach (var num in FilterList)
+            //{
+            //    Console.WriteLine(num);
+            //}
+            //Console.ReadLine();
 
-            int i = 0;
-            int menlist, anzahl, maximalzahl;
-            List<int> templist = new List<int>();
-            Console.WriteLine("Bitte gib mir eine zahl, wie viele Einträge du haben möchtest");
-            anzahl = int.Parse(Console.ReadLine());
-            for (i = 0; i < anzahl; i++)
+            //Arbeitsblatt Aufgaben zu Linq Nr. 9 Frage den Nutzer wie viele Einträge er ausgeben möchte, sortiere die Liste den Werten nach absteigend und gebe anschließend die n Einträge aus die der Nutzer sehen möchte. (Verwende die .Take() - Methode)
+            Console.WriteLine("Wie viele Einträge möchtest du haben");
+            int eintraege = int.Parse(Console.ReadLine());
+            List<int> liste = new List<int>();
+            for (int i = 0; i < eintraege; i++)
             {
-                Console.WriteLine("Member {0} ",i);                
-                templist.Add(Convert.ToInt32(Console.ReadLine()));
+                liste.Add(Convert.ToInt32(Console.ReadLine()));
             }
-            Console.WriteLine("Ab welcher Zahl sollen die Einträge wieder ausgegeben werden?");
-            maximalzahl = int.Parse(Console.ReadLine());
-            List<int> FilterList = templist.FindAll(x=>x>=maximalzahl? true: false);
-            Console.WriteLine("Die zahlen sind:");
-            foreach (var num in FilterList)
+            var order = from s in liste
+                                orderby ((uint)s)
+                                select s;
+            foreach (int i in order)
             {
-                Console.WriteLine(num);
+                Console.WriteLine(i);
             }
-            Console.ReadLine();
+            Console.WriteLine("Wie viele Zahlen sollen wir zurückgeben?");
+            int take = int.Parse(Console.ReadLine());
+            var newList = liste.Take(take);
+            foreach (int i in newList)
+            {
+                Console.WriteLine(i);
+            }
 
+
+
+            //Console.WriteLine("deine Liste ist voll");
+
+
+
+            Console.ReadKey();
         }
     }
 }
