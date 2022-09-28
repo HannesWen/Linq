@@ -60,15 +60,28 @@ namespace Linq
 
 
             //Arbeitsblatt Aufgaben zu Linq Nr. 5 Gebe die Häufigkeit jeden Buchstabens des angegebenen Strings aus. Lasse den Nutzer ein eigenes Wort eingeben. string str = „w3resource“;
-            string str = "w3resource";
-            var str1 = from x in str
-                       group x by x into buchstabe
-                       select buchstabe;
-            foreach (var x in str1)
+            //string str = "w3resource";
+            //var str1 = from x in str
+            //           group x by x into buchstabe
+            //           select buchstabe;
+            //foreach (var x in str1)
+            //{
+            //    Console.WriteLine("Buchstabe " + x.Key + " anzahl " + x.Count());
+            //}
+            //Console.ReadKey();
+
+            //Arbeitsblatt Aufgaben zu Linq Nr.Gebe die Zahl, das Auftreten der Zahl im Array, sowie die Multiplikation der Zahl mit der Zahl ihres Auftretens int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };
+            int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };
+
+            var zahlen = from x in nums
+                         group x by x into y
+                         select y;
+            foreach (var z in zahlen)
             {
-                Console.WriteLine("Buchstabe " + x.Key + " anzahl " + x.Count());
+                Console.WriteLine("zahl " + z.Key + " Summe " + z.Sum() + " auftreten " + z.Count());
             }
             Console.ReadKey();
+
 
         }
     }
